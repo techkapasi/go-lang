@@ -17,12 +17,20 @@ package main
 // instead of depending on internals of libc implementation.
 FILE *getStdout(void) { return stdout; }
 FILE *getStderr(void) { return stderr; }
+
+char* greeting = "hello, world";
+
 */
 import "C"
+import ("fmt")
 
-var Stdout = (*File)(C.getStdout())
-var Stderr = (*File)(C.getStderr())
+//var Stdout = (*File)(C.getStdout())
+//var Stderr = (*File)(C.getStderr())
 
 func main() {
-	stdio.Stdout.WriteString(stdio.Greeting + "\n")
+	//stdio.Stdout.WriteString(stdio.Greeting + "\n")
+	var Greeting = C.GoString(C.greeting)
+	fmt.Println(Greeting)
+	//stdio.Stdout.WriteString(stdio.Greeting + "\n")
+
 }
