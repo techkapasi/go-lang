@@ -8,9 +8,9 @@
 
 package main
 
-//import "../stdio"
+import "../stdio"
 //import "stdio"
-import "github.com/techkapasi/go-lang/cgo/stdio"
+//import "github.com/techkapasi/go-lang/cgo/stdio"
 
 func main() {
 	stdio.Stdout.WriteString(stdio.Greeting + "\n")
