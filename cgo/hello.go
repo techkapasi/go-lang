@@ -15,8 +15,8 @@ package main
 // on netbsd, they are defined as &__sF[FILENO]
 // and cgo doesn't recognize them, so write a function to get them,
 // instead of depending on internals of libc implementation.
-FILE *getStdout(void) { return stdout; }
-FILE *getStderr(void) { return stderr; }
+//FILE *getStdout(void) { return stdout; }
+//FILE *getStderr(void) { return stderr; }
 
 char* greeting = "hello, world";
 
