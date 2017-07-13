@@ -1,36 +1,18 @@
-// cmpout
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// +build test_run
-
 package main
 
 /*
 #include <stdio.h>
 
-// on mingw, stderr and stdout are defined as &_iob[FILENO]
-// on netbsd, they are defined as &__sF[FILENO]
-// and cgo doesn't recognize them, so write a function to get them,
-// instead of depending on internals of libc implementation.
-//FILE *getStdout(void) { return stdout; }
-//FILE *getStderr(void) { return stderr; }
-
-char* greeting = "hello, world";
+char* greeting = "Hello, World ~10Pearls";
 
 */
+
 import "C"
 import ("fmt")
-
-//var Stdout = (*File)(C.getStdout())
-//var Stderr = (*File)(C.getStderr())
 
 func main() {
 	//stdio.Stdout.WriteString(stdio.Greeting + "\n")
 	var Greeting = C.GoString(C.greeting)
 	fmt.Println(Greeting)
-	//stdio.Stdout.WriteString(stdio.Greeting + "\n")
-
+	C.printf(C.greeting)
 }
